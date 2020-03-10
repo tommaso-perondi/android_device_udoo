@@ -2,6 +2,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
 $(call inherit-product, $(TOPDIR)frameworks/base/data/sounds/AllAudio.mk)
 
+# Include OpenGApps
+GAPPS_VARIANT := pico
+
+# Include OpenGApps packages
+
+
+GAPPS_PRODUCT_PACKAGES += \
+              Chrome	\
+	      Maps	\
+	      PixelLauncher	\
+	      SetupWizard	\
+	      YouTube	\
+	      PixelLauncherIcons
+
 # Include SuperSU
 $(call inherit-product, vendor/supersu/vendor.mk)
 
@@ -347,3 +361,5 @@ endif
 
 # include a google recommend heap config file.
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
+# include OpenGApps
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
